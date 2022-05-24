@@ -55,52 +55,48 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-student.php');
         }
         ?>
     </aside>
-    <section class="content">
-        <div class="courses">
-            <?php
-            $sql = "SELECT * FROM groups WHERE id_group = '" . $_GET['id'] . "'";
+    <section class="content-info">
+        <?php
+        $sql = "SELECT * FROM groups WHERE id_group = '" . $_GET['id'] . "'";
 
-            if ($result = $conexion->query($sql)) {
-                if ($row = mysqli_fetch_array($result)) {
-                    $_SESSION['groups'][0] = $row['id_group'];
-                    $_SESSION['name_groups'][0] = $row['name'];
-                    $teacher_groups = $row['teacher'];
+        if ($result = $conexion->query($sql)) {
+            if ($row = mysqli_fetch_array($result)) {
+                $_SESSION['groups'][0] = $row['id_group'];
+                $_SESSION['name_groups'][0] = $row['name'];
+                $teacher_groups = $row['teacher'];
 
-                    $sql = "SELECT * FROM subjects WHERE subject = '" . $row['subjects'] . "'";
+                $sql = "SELECT * FROM subjects WHERE subject = '" . $row['subjects'] . "'";
 
-                    if ($result = $conexion->query($sql)) {
-                        if ($row = mysqli_fetch_array($result)) {
-                            $_SESSION['subject_name_groups'][0] = $row['name'];
-                            $_SESSION['subject_description_groups'][0] = $row['description'];
-                            $_SESSION['subject_video_groups'][0] = $row['video'];
-                        }
+                if ($result = $conexion->query($sql)) {
+                    if ($row = mysqli_fetch_array($result)) {
+                        $_SESSION['subject_name_groups'][0] = $row['name'];
+                        $_SESSION['subject_description_groups'][0] = $row['description'];
+                        $_SESSION['subject_video_groups'][0] = $row['video'];
                     }
+                }
 
-                    $sql = "SELECT * FROM teachers WHERE user = '" . $teacher_groups . "'";
+                $sql = "SELECT * FROM teachers WHERE user = '" . $teacher_groups . "'";
 
-                    if ($result = $conexion->query($sql)) {
-                        if ($row = mysqli_fetch_array($result)) {
-                            $_SESSION['teacher_name_groups'][0] = $row['name'] . ' ' . $row['surnames'];
-                        }
+                if ($result = $conexion->query($sql)) {
+                    if ($row = mysqli_fetch_array($result)) {
+                        $_SESSION['teacher_name_groups'][0] = $row['name'] . ' ' . $row['surnames'];
                     }
                 }
             }
-
-            echo $_SESSION['groups'][0] . '<br>';
-            echo $_SESSION['name_groups'][0] . '<br>';
-
-            echo $_SESSION['subject_description_groups'][0] . '<br>';
-            echo $_SESSION['teacher_name_groups'][0];
-            ?>
-            <div class="info-course">
-                <div class="details-course">
-
+        }
+        ?>
+        <div class="info-course">
+            <div class="details-course">
+                <div class="box">
+                    <span><?php echo 'ID: '.$_SESSION['groups'][0]; ?></span>
+                    <span><?php echo 'Nombre: ' . $_SESSION['name_groups'][0]; ?></span>
+                    <span><?php echo 'Docente: ' . $_SESSION['teacher_name_groups'][0]; ?></span>
                 </div>
-                <div class="video-course">
-
-                </div>
+                <p><?php echo $_SESSION['subject_description_groups'][0]; ?></p>
             </div>
-            <iframe width="560" height="315" src="<?php echo $_SESSION['subject_video_groups'][0] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-course">
+                <iframe width="100%" height="100%" src="<?php echo $_SESSION['subject_video_groups'][0] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
     </section>
 </body>

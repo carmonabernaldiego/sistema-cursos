@@ -438,7 +438,8 @@ body.login {
   Contenedor Formularios
 -------------------------------------------*/
 
-.content {
+.content,
+.content-info {
     display: block;
     float: right;
     margin: 0 3%;
@@ -452,7 +453,8 @@ body.login {
 }
 
 .content:after,
-.content-aside:after {
+.content-aside:after,
+.content-info:after {
     display: block;
     content: "";
     clear: both;
@@ -511,6 +513,59 @@ body.login {
     color: #688a92;
     font-size: 0.9em;
     font-weight: normal;
+}
+
+.content-info {
+    box-sizing: border-box;
+    padding: 20px 20px;
+    background: #fff;
+    box-shadow: 0 2px 2px rgba(73, 80, 104, 0.4);
+    border-radius: 0.4em;
+    user-select: none;
+}
+
+.content-info .info-course {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 40px;
+    grid-row-gap: 0px;
+}
+
+.content-info .details-course {
+    display: block;
+}
+
+.content-info .details-course .box {
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: #f8f9fb;
+    border-radius: 0.4em;
+}
+
+.content-info .details-course span {
+    display: block;
+    color: #688a92;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.content-info .details-course p {
+    padding: 10px 15px;
+    background-color: #f8f9fb;
+    border-radius: 0.4em;
+    color: #688a92;
+    font-size: 1.1em;
+    text-align: justify;
+}
+
+.content-info .video-course {
+    display: block;
+}
+
+.content-info .video-course iframe {
+    border-radius: 0.4em;
 }
 
 
