@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2022 a las 21:08:00
+-- Tiempo de generación: 24-05-2022 a las 02:48:04
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.4
 
@@ -71,10 +71,10 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`id_group`, `name`, `teacher`, `subjects`, `students`) VALUES
-('IDS-A', 'Grupo A', 'tchr-e9408', 'EDU_FISC01QR', 'stdt-9b8b6,stdt-e19f8,stdt-f7107'),
+('IDS-A', 'Grupo A', 'tchr-e9408', 'ALGE', 'stdt-9b8b6,stdt-e19f8,stdt-f7107'),
 ('IDS-B', 'Grupo B', 'tchr-617af', 'DESARROLLO', 'stdt-9b8b6,stdt-f7107'),
-('IDS-C', 'Grupo C', 'tchr-5c1ca', 'CALINT', 'stdt-e19f8'),
-('IDS-D', 'Grupo D', 'tchr-5c1ca', 'CALINT', 'stdt-9b8b6,stdt-e19f8,stdt-f7107');
+('IDS-C', 'Grupo C', 'tchr-e9423', 'CALINT', 'stdt-9b8b6'),
+('IDS-D', 'Grupo D', 'tchr-e9423', 'CALINT', 'stdt-9b8b6,stdt-f7107');
 
 -- --------------------------------------------------------
 
@@ -126,10 +126,10 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`subject`, `name`, `description`, `video`) VALUES
-('ALGE', 'Algebra Lineal', 'sjsjsjjjajjJXJ', 'xD'),
+('ALGE', 'Algebra Lineal', 'El álgebra lineal es un área fundamental de la matemática, tanto a nivel teórico como práctico. Son innumerables sus aplicaciones   en   Matemática   Aplicada,   Estadística,   Ingeniería,   Administración,   Negocios,   Economía   y   en   las   diferentes áreas de las ciencias naturales, del comportamiento humano, de la computación y de la salud. Los  temas  centrales  de  este  curso  son  los  espacios  Vectoriales  y  las  transformaciones  lineales,  sin  embargo,  el  curso se inicia  con el estudio de las matrices y los sistemas de ecuaciones. La solución de sistemas de ecuaciones es la herramienta fundamental para resolver problemas que se presentan en el resto de los capítulos; por último se trata el tema de diagonalización y valores propios.', 'https://www.youtube.com/embed/BMBZJwTS7Ks'),
 ('CALDIF01', 'Calculo Diferencial', 'El calculo diferencial se compone de diferentes temas.', 'youtube.com'),
-('CALINT', 'Calculo Integral', 'Calculo integral.', 'youtube.com/julioprofe'),
-('DESARROLLO', 'Software', 'jsjsjsj lalalas', 'youtube.com/software'),
+('CALINT', 'Calculo Integral', 'El cálculo integral, encuadrado en el cálculo infinitesimal, es una rama de las matemáticas en el proceso de integración o antiderivación. Es muy común en la ingeniería y en la ciencia; se utiliza principalmente para el cálculo de áreas y volúmenes de regiones y sólidos de revolución.', 'https://www.youtube.com/embed/E3ECQskKyrU'),
+('DESARROLLO', 'Requerimientos de Software', 'El alumno determinará la funcionalidad del proyecto de software a través de métodos de recolección de información, modelado de requerimientos y estudio de factibilidad para generar propuestas de desarrollo de software.\n\nSe desarrollan para un cliente específico, del mismo modo que se hace un traje a la medida de un individuo. También se denominan Sistemas de Propósito Específico.\n\nIncorpora el modelo de negocios de la empresa que encarga por lo que presenta muchas \nimplicaciones al momento de revender el sistema.', 'https://www.youtube.com/embed/0R6LSA2ArFo'),
 ('EDU_FISC01QR', 'Educación física', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis lectus at rhoncus faucibus. Etiam sit amet nulla eu tortor luctus semper. Donec egestas leo nisl, at ornare ex tempus id. Nullam at euismod arcu, vitae bibendum risus. Vivamus cursus elit at diam mattis pretium. Maecenas non condimentum justo, et tempor tortor. Nam at mi commodo, euismod enim non, malesuada felis. Proin quis elementum justo. In posuere, nunc vel ultrices sagittis, velit purus viverra augue, posuere scelerisque dolor magna vel nisl. Aliquam in commodo ligula, at mattis ligula. Curabitur et arcu metus. Mauris neque arcu, volutpat quis volutpat a, bibendum ac magna. Duis pellentesque viverra quam eget euismod.\r\n\r\nPhasellus tincidunt posuere faucibus. Sed imperdiet metus ullamcorper enim consequat tempor. Quisque nec lectus facilisis, gravida nisl sit amet, egestas nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae turpis massa. Aenean gravida commodo ante a maximus. Sed eget mi ac ante hendrerit molestie. Vivamus feugiat purus sit amet lobortis tempor. Quisque neque libero, ultrices non ex id, venenatis convallis lorem. Suspendisse malesuada erat vel ornare interdum. In hac habitasse platea dictumst.', 'youtube.com/educacionfisica'),
 ('INGBAS01', 'Ingles Básico', 'El idioma inglés (English language o English, pronunciado /ˈɪŋɡlɪʃ/) es una lengua germánica occidental que surgió en los reinos anglosajones de Inglaterra y se extendió hasta el Norte en lo que se convertiría en el sudeste de Escocia, bajo la influencia del Reino de Northumbria.', 'youtube.com/ingles');
 
@@ -161,8 +161,7 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`user`, `name`, `surnames`, `date_of_birth`, `gender`, `curp`, `rfc`, `phone`, `address`, `level_studies`, `specialty`, `career`, `created_at`, `updated_at`) VALUES
-('tchr-50747', 'sjj', 'skks', '2022-05-13', 'otro', 'JJJJJJJJJJJJJJJJJJ', 'SSSSSSSSSSSSS', '8888888888', 'kskksksk', 'Ingenieria', 'sjskjsj', '', '2022-05-10 22:52:52', NULL),
-('tchr-5c1ca', 'Moisés', 'Gómez Meléndez', '1996-02-02', 'hombre', 'KSK92992292KSA0000', 'CCCCCCONOCIDO', '9716278838', 'CONOCIDO', 'Ingenieria', 'Cálculo Diferencial', 'IDS,INGPLRA', '2022-02-06 20:37:47', '2022-02-06 20:34:37'),
+('tchr-50747', 'Moisés', 'Gómez Meléndez', '1996-02-02', 'hombre', 'KSK92992292KSA0000', 'CCCCCCONOCIDO', '9716278838', 'CONOCIDO', 'Ingenieria', 'Cálculo Diferencial', 'IDS,INGPLRA', '2022-02-06 20:37:47', '2022-02-06 20:34:37'),
 ('tchr-617af', 'Rigoberto', 'Nanguluru Conde', '2022-02-18', 'hombre', 'CLLLS9202JS8KS90SS', 'CCCCCCONOCIDO', '9881877732', 'CONOCIDO', 'Doctorado', 'Maestría en Computación', 'IDS,MATBASICAS', '2022-02-06 20:37:53', '2022-04-03 05:57:35'),
 ('tchr-a80e12', 'Pamela', 'Sánchez', '2022-02-08', 'mujer', 'ATME980215KMN32221', 'ATME980215KMN', '9991020394', 'Av. Siempre Viva', 'Licenciatura', 'Negocios', 'IDS,INGBIO,MATBASICAS,MTABIOTEC', '2022-02-02 00:47:13', '2022-02-07 12:45:38'),
 ('tchr-e9408', 'Juanita de la Cruz', 'Nepomuceno', '2022-02-08', 'mujer', 'KSKKS020020219100S', 'JJJJJCONOCIDO', '9672282646', 'CONOCIDO', 'Maestria', 'Enseñanza del Español', 'INGBIO,MATBASICAS', '2022-02-06 20:37:59', '2022-02-06 20:38:44'),
@@ -195,7 +194,11 @@ INSERT INTO `users` (`user`, `email`, `pass`, `permissions`, `image`, `image_upd
 ('stdt-9b8b6', NULL, 'stdt-9b8b6', 'student', 'user.png', NULL, '2022-05-10 22:53:51', NULL),
 ('stdt-e19f8', NULL, 'root', 'student', 'user.png', NULL, '2022-04-04 22:26:03', '2022-04-19 04:44:35'),
 ('stdt-f7107', NULL, 'root', 'student', 'user.png', NULL, '2022-04-04 22:15:43', '2022-04-19 04:44:40'),
-('tchr-50747', NULL, 'tchr-50747', 'teacher', 'user.png', NULL, '2022-05-10 22:52:52', NULL);
+('tchr-50747', NULL, 'tchr-50747', 'teacher', 'user.png', NULL, '2022-05-14 19:04:53', NULL),
+('tchr-617af', NULL, 'tchr-617af', 'teacher', NULL, NULL, '2022-05-14 19:10:28', NULL),
+('tchr-a80e12', NULL, 'tchr-a80e12', 'teacher', NULL, NULL, '2022-05-14 19:10:28', NULL),
+('tchr-e9408', NULL, 'tchr-e9408', 'teacher', NULL, NULL, '2022-05-14 19:09:04', NULL),
+('tchr-e9423', NULL, 'tchr-e9423', 'teacher', NULL, NULL, '2022-05-14 19:09:04', NULL);
 
 --
 -- Índices para tablas volcadas
