@@ -51,68 +51,72 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-student.php');
 		}
 		?>
 	</aside>
-	<section class="content">
-		<div class="courses">
-			<?php
-			$groups = array();
-			$students_groups = array();
+	<?php
+	if (isset($_SESSION['groups'])) {
+		echo '
+			<section class="content">
+				<div class="courses">
+			';
 
-			$i = 0;
+		$groups = array();
+		$students_groups = array();
 
-			$sql = "SELECT * FROM groups";
+		$i = 0;
 
-			if ($result = $conexion->query($sql)) {
-				while ($row = mysqli_fetch_array($result)) {
-					$groups[$i] = $row['id_group'];
-					$students_groups[$i] = $row['students'];
+		$sql = "SELECT * FROM groups";
 
-					$i += 1;
-				}
-			}
-
-			$i = 0;
-			$j = 0;
-
-			foreach ($students_groups as $selected) {
-				$buscar = strpos($selected, $_SESSION['user']);
-
-				if ($buscar !== false) {
-					$sql = "SELECT * FROM groups WHERE id_group = '" . $groups[$i] . "'";
-
-					if ($result = $conexion->query($sql)) {
-						if ($row = mysqli_fetch_array($result)) {
-							$_SESSION['groups'][$j] = $row['id_group'];
-							$_SESSION['name_groups'][$j] = $row['name'];
-							$teacher_groups = $row['teacher'];
-
-							$sql = "SELECT * FROM subjects WHERE subject = '" . $row['subjects'] . "'";
-
-							if ($result = $conexion->query($sql)) {
-								if ($row = mysqli_fetch_array($result)) {
-									$_SESSION['subject_name_groups'][$j] = $row['name'];
-								}
-							}
-
-							$sql = "SELECT * FROM teachers WHERE user = '" . $teacher_groups . "'";
-
-							if ($result = $conexion->query($sql)) {
-								if ($row = mysqli_fetch_array($result)) {
-									$_SESSION['teacher_name_groups'][$j] = $row['name'] . ' ' . $row['surnames'];
-								}
-							}
-
-							$j += 1;
-						}
-					}
-				}
+		if ($result = $conexion->query($sql)) {
+			while ($row = mysqli_fetch_array($result)) {
+				$groups[$i] = $row['id_group'];
+				$students_groups[$i] = $row['students'];
 
 				$i += 1;
 			}
+		}
 
-			$i = 0;
+		$i = 0;
+		$j = 0;
 
-			foreach ($_SESSION['groups'] as $selected) {
-				echo '
+		foreach ($students_groups as $selected) {
+			$buscar = strpos($selected, $_SESSION['user']);
+
+			if ($buscar !== false) {
+				$sql = "SELECT * FROM groups WHERE id_group = '" . $groups[$i] . "'";
+
+				if ($result = $conexion->query($sql)) {
+					if ($row = mysqli_fetch_array($result)) {
+						$_SESSION['groups'][$j] = $row['id_group'];
+						$_SESSION['name_groups'][$j] = $row['name'];
+						$teacher_groups = $row['teacher'];
+
+						$sql = "SELECT * FROM subjects WHERE subject = '" . $row['subjects'] . "'";
+
+						if ($result = $conexion->query($sql)) {
+							if ($row = mysqli_fetch_array($result)) {
+								$_SESSION['subject_name_groups'][$j] = $row['name'];
+							}
+						}
+
+						$sql = "SELECT * FROM teachers WHERE user = '" . $teacher_groups . "'";
+
+						if ($result = $conexion->query($sql)) {
+							if ($row = mysqli_fetch_array($result)) {
+								$_SESSION['teacher_name_groups'][$j] = $row['name'] . ' ' . $row['surnames'];
+							}
+						}
+
+						$j += 1;
+					}
+				}
+			}
+
+			$i += 1;
+		}
+
+		$i = 0;
+
+		foreach ($_SESSION['groups'] as $selected) {
+			echo '
 						<div class="course">
 							<a href="course?id=' . $selected . '">
 								<h3>' . $_SESSION['subject_name_groups'][$i] . '</h3>
@@ -121,10 +125,16 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-student.php');
 							</a>
 						</div>
 				';
-				$i += 1;
-			}
-			?>
-		</div>
+			$i += 1;
+		}
+	} else {
+		echo '
+		<div class="content-404">
+			<img src="/images/404.svg" class="data-not-found" alt="404">
+		</div>';
+	}
+	?>
+	</div>
 	</section>
 </body>
 <script src="/js/controls/buttons.js" type="text/javascript"></script>

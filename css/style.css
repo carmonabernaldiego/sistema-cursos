@@ -336,9 +336,11 @@ body.login {
     0% {
         opacity: 0;
     }
+
     99% {
         opacity: 0.99;
     }
+
     100% {
         opacity: 1;
     }
@@ -566,6 +568,26 @@ body.login {
 
 .content-info .video-course iframe {
     border-radius: 0.4em;
+}
+
+.content-404 {
+    box-sizing: border-box;
+    display: block;
+    float: right;
+    width: 72%;
+    margin: 0 3%;
+    padding: 20px 20px;
+    background: #fff;
+    box-shadow: 0 2px 2px rgba(73, 80, 104, 0.4);
+    border-radius: 0.4em;
+    user-select: none;
+}
+
+.content-404 img.data-not-found {
+    display: block;
+    width: 80%;
+    margin: 2% auto 3%;
+    pointer-events: none;
 }
 
 
@@ -2427,37 +2449,46 @@ input[type="range"]:active {
     .wrap-title-login {
         height: 190px;
     }
+
     .wrap-title-login .title-login h1 {
         padding-top: 15px;
         font-size: 2.2em;
     }
+
     .form-login {
         margin-top: -60px;
         width: 300px;
         height: 382.5px;
     }
+
     .form-login .label {
         margin: -5px 0 -5px 0;
     }
+
     .form-login .label.error {
         margin: 6px 0 -.8px 0;
         font-size: 1em;
     }
+
     .form-login .text,
     .form-login .textcontrasena {
         width: 81.9%;
     }
+
     .form-login .forgot-pass {
         margin-top: 28px;
         margin-bottom: -3px;
     }
+
     .form-login .pretty {
         margin: -17% 0 0 30.1%;
         font-size: 1em;
     }
+
     .form-login .pretty .state label {
         margin: 0 0 0 4px;
     }
+
     .form-login .button {
         float: none;
         display: block;
@@ -2473,26 +2504,32 @@ input[type="range"]:active {
 -------------------------------------------*/
 
 @media only screen and (max-width: 1186px) {
+
     .menu-mobile,
     .user-mobile {
         display: block !important;
     }
+
     .menu-mobile {
         margin-top: -162px;
         margin-bottom: 97px;
     }
+
     .user-mobile {
         margin-top: -154px;
         margin-bottom: 100px;
     }
+
     .nav-home {
         display: none;
     }
+
     .header {
         float: none;
         width: 94%;
         margin-top: 100px;
     }
+
     .content {
         float: none;
         width: 94%;
@@ -2503,23 +2540,29 @@ input[type="range"]:active {
     .menu-mobile ::-webkit-scrollbar {
         height: 3px;
     }
+
     .menu-mobile {
         margin-top: -162px;
         margin-bottom: 97px;
     }
+
     .user-mobile {
         margin-top: -154px;
         margin-bottom: 100px;
     }
+
     .info-title {
         width: 59.8%;
     }
+
     .info-title .title {
         margin-left: 7%;
     }
+
     .info-school-period {
         width: 40%;
     }
+
     .box-notification-ok,
     .box-notification-error {
         width: 94%;
@@ -2528,43 +2571,54 @@ input[type="range"]:active {
         padding: 0 3%;
         box-shadow: none;
     }
+
     .content {
         display: flex;
         flex-flow: column-reverse;
     }
+
     .content-aside {
         width: 100%;
     }
+
     .form-gridview {
         width: 100%;
     }
+
     .form-data {
         width: 100%;
     }
+
     .form-options {
         margin-bottom: 27px;
     }
+
     .form-options .options {
         padding: 7px 10%;
         border: none;
     }
+
     .form-options .options .btn {
         width: 35px;
         height: 35px;
     }
+
     .form-options .options .btn-search-mobile {
         display: block;
     }
+
     .form-options .search {
         display: none;
         padding: 5px 0 12px;
     }
+
     .form-options .search .text-search {
         width: 73%;
         height: 35px;
         margin-left: 6.5%;
         padding: 0 12% 0 2%;
     }
+
     .form-options .search .btn-search {
         width: 10%;
         height: 35px;
@@ -2573,6 +2627,7 @@ input[type="range"]:active {
 }
 
 @media only screen and (max-width: 820px) {
+
     .form-config-user .body .config-data-user .btn-edit-info-user,
     .form-config-user .body .config-data-user .btn-change-pass {
         width: 87.9%;
@@ -2585,75 +2640,94 @@ input[type="range"]:active {
     .info-title {
         width: 59.5%;
     }
+
     .info-title .title {
         margin-left: 8%;
     }
+
     .form-data .body .first,
     .form-data .body .last,
     .form-data .body .description {
         width: 88%;
     }
+
     .form-data .body .content-full {
         width: 88%;
     }
+
     .form-data .body .content-full .select2-container .select2-selection--single .select2-selection__rendered {
         padding: 0 3% !important;
     }
+
     .form-data .body .content-full .select2-container--default .select2-selection--single .select2-selection__arrow {
         right: 2%;
         width: 20px;
     }
+
     .form-data .body .content-full .select2-container .select2-search--inline .select2-search__field {
         margin-left: 3%;
     }
+
     .form-data .body .textarea {
         width: 94%;
         padding: 6px 3%;
     }
+
     .form-data .body .description .textarea {
         width: 94%;
         padding: 6px 3%;
     }
+
     .form-gridview .pages ul li button {
         width: 5%;
     }
+
     .form-config-user .body .first,
     .form-config-user .body .last {
         width: 87.5%;
     }
+
     .form-config-user .body .first {
         padding: 24px 0 2%;
     }
+
     .form-config-user .body .footer {
         padding: 24px 0 24px;
     }
+
     .form-config-user .body .config-data-user .btn-edit-info-user,
     .form-config-user .body .config-data-user .btn-change-pass {
         width: 90.9%;
         height: 36px;
         padding-left: 9%;
     }
+
     .form-config-user .body .section-croppie-image,
     .form-data .body .section-croppie-image {
         padding: 24px 0 0;
     }
+
     .form-config-user .body .section-croppie-image .options {
         padding: 10px 0 24px;
     }
+
     .form-config-user .body .section-croppie-image .cr-slider {
         padding-bottom: 8px;
     }
 }
 
 @media only screen and (max-width: 641px) {
+
     .form-gridview img.data-not-found,
     .form-data img.data-not-found {
         margin: 1% auto 5%;
     }
+
     .form-gridview {
         width: 97%;
         padding: 0 1.5%;
     }
+
     .form-gridview table.default {
         display: block;
         max-width: fit-content;
@@ -2662,22 +2736,28 @@ input[type="range"]:active {
         white-space: nowrap;
         box-shadow: 0 1px 6px rgba(142, 136, 192, 0.2);
     }
+
     .form-gridview .pages {
         margin: 3.2% 0 3.2% 3.89%;
     }
+
     .form-data .delete .btn-si {
         margin: 22px 0 25px 20%;
     }
+
     .form-data .delete .btn-no {
         margin: 22px 20% 25px 0;
     }
+
     .form-data.form-users .body .wrap {
         padding: 25px 0 0 0;
     }
+
     .form-options .search .text-search {
         width: 69%;
         padding: 0 16% 0 2%;
     }
+
     .form-options .search .btn-search {
         width: 14%;
         margin: 0 6.5% 0 -14%;
@@ -2685,6 +2765,7 @@ input[type="range"]:active {
 }
 
 @media only screen and (max-width: 540px) {
+
     .form-config-user .body .config-data-user .btn-edit-info-user,
     .form-config-user .body .config-data-user .btn-change-pass {
         width: 89%;
@@ -2698,6 +2779,7 @@ input[type="range"]:active {
         width: 97%;
         padding: 0 1.5%;
     }
+
     .form-gridview table.users {
         display: block;
         max-width: fit-content;
@@ -2712,28 +2794,35 @@ input[type="range"]:active {
     .info-title {
         width: 59.5%;
     }
+
     .info-title .title {
         font-size: 1.2em;
     }
+
     .info-school-period .school-period {
         padding: 0 8px;
         font-size: .85em;
     }
+
     .info-school-period .school-period a {
         font-size: .95em;
     }
+
     .form-gridview .pages ul li button {
         width: 8%;
     }
+
     .form-data .delete .btn-si {
         margin: 22px 0 25px 6%;
     }
+
     .form-data .delete .btn-no {
         margin: 22px 6% 25px 0;
     }
 }
 
 @media only screen and (max-width: 410px) {
+
     .form-config-user .body .config-data-user .btn-edit-info-user,
     .form-config-user .body .config-data-user .btn-change-pass {
         width: 87%;
