@@ -69,3 +69,4 @@ include_once 'load_data.php';
 <?php
 include_once '../modules/notif_info.php';
 ?>
+<script src="/js/modules/user.js" type="text/javascript"></script>
