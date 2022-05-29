@@ -17,9 +17,9 @@ if (isset($_POST["txtoldpassword"])) {
             }
 
             if (mysqli_query($conexion, $sql_update)) {
-                Info('Usuario actualizado.');
+                Info('Contraseña actualizada.');
             } else {
-                Error('Error al actualizar.');
+                Error('Error al actualizar contraseña.');
             }
         } else {
             Error('Contraseña incorrecta.');
