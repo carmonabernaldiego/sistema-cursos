@@ -41,7 +41,7 @@ let imageSize = {
 
 $('.section-croppie-image').hide();
 
-$('.btn-edit-email').click(function(event) {
+$('.btn-edit-email').click(function (event) {
     $('#txtemailupdate').prop('disabled', false);
     $('#txtemailupdate').focus();
 
@@ -49,28 +49,39 @@ $('.btn-edit-email').click(function(event) {
     $('.btn-edit-email').addClass('disabled');
 });
 
-$('#txtemailupdate').change(function(event) {
+$('#txtemailupdate').change(function (event) {
+    $.ajax({
+        url: 'update_email.php',
+        type: 'POST',
+        data: {
+            'user-email': $('#txtemailupdate').val()
+        },
+        success: function () {
+            location.href = location.href;
+            window.location.href = '/user';
+        }
+    });
     $('#txtemailupdate').prop('disabled', true);
 
     $('.btn-edit-email').prop('disabled', false);
     $('.btn-edit-email').removeClass('disabled');
 });
 
-$('.change-btn').click(function(event) {
+$('.change-btn').click(function (event) {
     $('.change-btn').blur();
     $('#fileuploadimage').trigger('click');
 });
 
-$('.file').click(function(event) {
+$('.file').click(function (event) {
     $('#fileuploadimage').trigger('click');
 });
 
-$('#fileuploadimage').on('change', function() {
+$('#fileuploadimage').on('change', function () {
     let reader = new FileReader();
-    reader.onload = function(event) {
+    reader.onload = function (event) {
         image_crop.croppie('bind', {
             url: event.target.result
-        }).then(function() {
+        }).then(function () {
             console.log('jQuery bind complete');
         });
     }
@@ -79,13 +90,13 @@ $('#fileuploadimage').on('change', function() {
     $('.section-croppie-image').show();
 });
 
-$('.crop-btn').click(function(event) {
+$('.crop-btn').click(function (event) {
     image_crop.croppie('result', {
         type: 'canvas',
         size: imageSize,
         quality: 1,
         circle: false
-    }).then(function(response) {
+    }).then(function (response) {
         $('.loader-user').css('visibility', 'visible');
         $('.wrap').show();
         $('.section-croppie-image').hide();
@@ -95,7 +106,7 @@ $('.crop-btn').click(function(event) {
             data: {
                 'image': response
             },
-            success: function() {
+            success: function () {
                 location.href = location.href;
                 window.location.href = '/user';
             }
