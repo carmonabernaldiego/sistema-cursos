@@ -8,7 +8,7 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-student.ph
             <div class="wrap">
                 <div class="center" style="width: 85%; margin-top: 20px;">
                     <label for="txtoldpassword" class="label">Contraseña antigua</label>
-                    <input id="txtoldpassword" class="text" type="password" name="txtoldpassword" value="" maxlength="50" required />
+                    <input id="txtoldpassword" class="text" type="password" name="txtoldpassword" value="" maxlength="50" autofocus required />
                     <label for="txtnewpassword" class="label">Nueva contraseña</label>
                     <input id="txtnewpassword" class="text" type="password" name="txtnewpassword" value="" maxlength="50" required />
                     <label for="txtconfirmnewpassword" id="labelHide" class="label">Confirmar nueva contraseña</label>
