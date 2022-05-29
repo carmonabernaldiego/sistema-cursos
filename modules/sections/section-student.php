@@ -38,7 +38,7 @@ if (strpos($url_actual, 'modules')) {
 }
 ?>
 <div class="nav-home">
-    <span class="name_system">Control de Asistencias</span>
+    <span class="name_system">Sistema Escolar</span>
     <div class="user">
         <img class="image_user" src="/images/users/<?php echo $_SESSION['image']; ?>" />
         <span class="name_user">
@@ -87,7 +87,7 @@ if (strpos($url_actual, 'modules')) {
             </ul>
         </nav>
     </header>
-    <span class="name_system">Control de Asistencias</span>
+    <span class="name_system">Sistema Escolar</span>
 </div>
 <div class="user-mobile">
     <header>
