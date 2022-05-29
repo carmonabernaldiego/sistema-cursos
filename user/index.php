@@ -28,13 +28,17 @@ if (!empty($_POST['btn'])) {
 	<link rel="icon" type="image/png" href="/images/icon.png" />
 	<title>Usuarios | Sistema Escolar</title>
 	<meta name="description" content="Sistema Escolar, gestión de asistencias." />
-	<link rel="stylesheet" href="/css/style.css?v=<?php echo (rand()); ?>" media="screen, projection" type="text/css" />
+	<link rel="stylesheet" href="/css/style.css" media="screen, projection" type="text/css" />
 	<link rel="stylesheet" href="/css/styleconfiguser.css" media="screen, projection" type="text/css" />
 	<link rel="stylesheet" href="/css/croppie.css" media="screen, projection" type="text/css" />
+	<link rel="stylesheet" href="/css/select2.css" media="screen, projection" type="text/css" />
+	<link rel="stylesheet" href="/css/litepicker.css" media="screen, projection" type="text/css" />
 	<script src="/js/external/jquery.min.js" type="text/javascript"></script>
 	<script src="/js/external/prefixfree.min.js" type="text/javascript"></script>
 	<script src="/js/controls/unsetnotif.js" type="text/javascript"></script>
 	<script src="/js/external/croppie.js" type="text/javascript"></script>
+	<script src="/js/external/litepicker.js" type="text/javascript"></script>
+	<script src="/js/external/select2.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(window).load(function() {
 			$(".loader").fadeOut("slow");
@@ -54,8 +58,8 @@ if (!empty($_POST['btn'])) {
 		if (!empty($_SESSION['section-admin']) == 'go-' . $_SESSION['user']) {
 			include_once '../modules/sections/section-admin.php';
 		} elseif (!empty($_SESSION['section-student']) == 'go-' . $_SESSION['user']) {
-            include_once '../modules/sections/section-student.php';
-        }
+			include_once '../modules/sections/section-student.php';
+		}
 		?>
 	</aside>
 	<section class="content">
