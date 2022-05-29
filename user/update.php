@@ -35,6 +35,8 @@ if ($result = $conexion->query($sql)) {
 
 		if (mysqli_query($conexion, $sql_update)) {
 			Info('Usuario actualizado.');
+			$_SESSION['name'] = trim($_POST['txtname']);
+			$_SESSION['surnames'] = trim($_POST['txtsurnames']);
 		} else {
 			Error('Error al actualizar usuario.');
 		}
