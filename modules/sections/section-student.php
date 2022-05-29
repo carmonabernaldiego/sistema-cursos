@@ -29,6 +29,10 @@ if (strpos($url_actual, 'modules')) {
     $input = $url_actual;
     preg_match('~modules/(.*?)/~', $input, $output);
     $output[1];
+} elseif (strpos($url_actual, 'user')) {
+    $input = $url_actual;
+    preg_match('~/(.*?)/~', $input, $output);
+    $output[1];
 } else {
     $output[1] = 'home';
 }
