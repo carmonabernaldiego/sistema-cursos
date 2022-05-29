@@ -10,6 +10,61 @@ header('Pragma: no-cache');
 
 //Permisos de Estudiante
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-student.php');
+
+$groups = array();
+$students_groups = array();
+
+$i = 0;
+
+$sql = "SELECT * FROM groups";
+
+if ($result = $conexion->query($sql)) {
+	while ($row = mysqli_fetch_array($result)) {
+		$groups[$i] = $row['id_group'];
+		$students_groups[$i] = $row['students'];
+
+		$i += 1;
+	}
+}
+
+$i = 0;
+$j = 0;
+
+foreach ($students_groups as $selected) {
+	$buscar = strpos($selected, $_SESSION['user']);
+
+	if ($buscar !== false) {
+		$sql = "SELECT * FROM groups WHERE id_group = '" . $groups[$i] . "'";
+
+		if ($result = $conexion->query($sql)) {
+			if ($row = mysqli_fetch_array($result)) {
+				$_SESSION['groups'][$j] = $row['id_group'];
+				$_SESSION['name_groups'][$j] = $row['name'];
+				$teacher_groups = $row['teacher'];
+
+				$sql = "SELECT * FROM subjects WHERE subject = '" . $row['subjects'] . "'";
+
+				if ($result = $conexion->query($sql)) {
+					if ($row = mysqli_fetch_array($result)) {
+						$_SESSION['subject_name_groups'][$j] = $row['name'];
+					}
+				}
+
+				$sql = "SELECT * FROM teachers WHERE user = '" . $teacher_groups . "'";
+
+				if ($result = $conexion->query($sql)) {
+					if ($row = mysqli_fetch_array($result)) {
+						$_SESSION['teacher_name_groups'][$j] = $row['name'] . ' ' . $row['surnames'];
+					}
+				}
+
+				$j += 1;
+			}
+		}
+	}
+
+	$i += 1;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -57,61 +112,6 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-student.php');
 			<section class="content">
 				<div class="courses">
 			';
-
-		$groups = array();
-		$students_groups = array();
-
-		$i = 0;
-
-		$sql = "SELECT * FROM groups";
-
-		if ($result = $conexion->query($sql)) {
-			while ($row = mysqli_fetch_array($result)) {
-				$groups[$i] = $row['id_group'];
-				$students_groups[$i] = $row['students'];
-
-				$i += 1;
-			}
-		}
-
-		$i = 0;
-		$j = 0;
-
-		foreach ($students_groups as $selected) {
-			$buscar = strpos($selected, $_SESSION['user']);
-
-			if ($buscar !== false) {
-				$sql = "SELECT * FROM groups WHERE id_group = '" . $groups[$i] . "'";
-
-				if ($result = $conexion->query($sql)) {
-					if ($row = mysqli_fetch_array($result)) {
-						$_SESSION['groups'][$j] = $row['id_group'];
-						$_SESSION['name_groups'][$j] = $row['name'];
-						$teacher_groups = $row['teacher'];
-
-						$sql = "SELECT * FROM subjects WHERE subject = '" . $row['subjects'] . "'";
-
-						if ($result = $conexion->query($sql)) {
-							if ($row = mysqli_fetch_array($result)) {
-								$_SESSION['subject_name_groups'][$j] = $row['name'];
-							}
-						}
-
-						$sql = "SELECT * FROM teachers WHERE user = '" . $teacher_groups . "'";
-
-						if ($result = $conexion->query($sql)) {
-							if ($row = mysqli_fetch_array($result)) {
-								$_SESSION['teacher_name_groups'][$j] = $row['name'] . ' ' . $row['surnames'];
-							}
-						}
-
-						$j += 1;
-					}
-				}
-			}
-
-			$i += 1;
-		}
 
 		$i = 0;
 
