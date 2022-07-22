@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2022 a las 02:48:04
+-- Tiempo de generación: 22-07-2022 a las 04:35:58
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.4
 
@@ -49,7 +49,7 @@ CREATE TABLE `administratives` (
 --
 
 INSERT INTO `administratives` (`user`, `name`, `surnames`, `date_of_birth`, `gender`, `curp`, `rfc`, `phone`, `address`, `level_studies`, `occupation`, `observations`, `created_at`, `updated_at`) VALUES
-('admin', 'Diego', 'Carmona Bernal', '1997-04-05', 'hombre', 'CABD970405HCSRRG03', 'CABD9704052K5', '9614044227', 'Av. Aquiles Serdán 915, Bienestar Social, 29077, Tuxtla Gutiérrez, Chiapas.', 'Ingenieria', 'Programador', '', '2021-12-05 18:33:37', '2022-04-19 05:32:11'),
+('admin', 'Diego', 'Carmona Bernal', '1997-04-05', 'hombre', 'CABD970405HCSRRG03', 'CABD9704052K5', '9614044227', 'Av. Aquiles Serdán 915, Bienestar Social, 29077, Tuxtla Gutiérrez, Chiapas.', 'Ingenieria', 'Programador', '', '2021-12-05 18:33:37', '2022-05-29 22:22:24'),
 ('admin-eb405', 'Magnolia', 'Montejo Gómez', '1985-03-16', 'mujer', 'MMGO160385MCSRRG01', 'MMGO160385MCS', '9613459810', 'Av. Tulipanes #132, Bienestar Social, Tuxtla Gutiérrez, Chiapas', 'Licenciatura', 'Administrativo', '', '2021-12-04 02:13:36', '2022-02-05 23:24:23');
 
 -- --------------------------------------------------------
@@ -105,8 +105,9 @@ CREATE TABLE `students` (
 
 INSERT INTO `students` (`user`, `name`, `surnames`, `date_of_birth`, `gender`, `curp`, `rfc`, `phone`, `address`, `career`, `documentation`, `admission_date`, `created_at`, `updated_at`) VALUES
 ('stdt-9b8b6', 'Leonardo Javier', 'Morningstar', '2022-05-11', '', 'KSKKSSSSSSSSSSSSSS', 'KKKKKKKKKKKKK', '1111111111', 'kkkkkkkkkk', 'kkkkkkkkkk', 1, '2022-05-10', '2022-05-10 22:53:51', NULL),
-('stdt-e19f8', 'Fernando Daniel', 'Pérez Pérez', '2003-09-13', 'hombre', 'PEPFE030913HCSRRG0', 'PEPFE030913HC', '9687650987', 'Av. Jalisco / Los Mangos y Los chiles, 29076, Chiapas.', 'Sistemas', 1, '2022-04-04', '2022-04-04 22:26:03', '2022-04-19 04:11:46'),
-('stdt-f7107', 'Efraín', 'Gómez Rodríguez', '1986-10-10', 'hombre', 'GORE861010HCSRRG01', 'GORE861010HCS', '9686892915', 'Av. Los Tulipanes #27, 29088, Chiapas.', 'Sistemas', 1, '2022-04-04', '2022-04-04 22:15:43', '2022-04-19 05:42:36');
+('stdt-e19f8', 'Fernando Daniel', 'Pérez Pérez', '2000-01-01', 'hombre', 'PEPFE030913HCSRRG0', 'PEPFE030913HC', '9687650987', 'Av. Jalisco / Los Mangos y Los chiles, 29076, Chiapas.', 'Sistemas', 1, '2022-04-04', '2022-04-04 22:26:03', '2022-05-29 21:28:30'),
+('stdt-f7107', 'Efraín', 'Gómez Rodríguez', '1986-10-10', 'hombre', 'GORE861010HCSRRG01', 'GORE861010HCS', '9686892915', 'Av. Los Tulipanes #27, 29088, Chiapas.', 'Sistemas', 1, '2022-04-04', '2022-04-04 22:15:43', '2022-04-19 05:42:36'),
+('student-x', '', '', NULL, NULL, '', '', '', '', '', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -189,11 +190,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user`, `email`, `pass`, `permissions`, `image`, `image_updated_at`, `created_at`, `updated_at`) VALUES
-('admin', 'ejemplo@gmail.com', 'root', 'admin', 'admin221.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-19 06:00:18'),
+('admin', 'cbdiegox@gmail.com', 'root', 'admin', 'admin221.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-19 06:00:18'),
 ('admin-eb405', 'magnoliamontejogomez@gmail.com', 'admin-eb405', 'admin', 'user.png', NULL, '2021-12-04 02:13:36', '2022-03-13 02:59:59'),
 ('stdt-9b8b6', NULL, 'stdt-9b8b6', 'student', 'user.png', NULL, '2022-05-10 22:53:51', NULL),
-('stdt-e19f8', NULL, 'root', 'student', 'user.png', NULL, '2022-04-04 22:26:03', '2022-04-19 04:44:35'),
+('stdt-e19f8', '', 'root', 'student', 'user.png', NULL, '2022-04-04 22:26:03', '2022-04-19 04:44:35'),
 ('stdt-f7107', NULL, 'root', 'student', 'user.png', NULL, '2022-04-04 22:15:43', '2022-04-19 04:44:40'),
+('student-x', NULL, 'root', 'student', 'user.png', NULL, '2022-05-28 01:21:33', NULL),
 ('tchr-50747', NULL, 'tchr-50747', 'teacher', 'user.png', NULL, '2022-05-14 19:04:53', NULL),
 ('tchr-617af', NULL, 'tchr-617af', 'teacher', NULL, NULL, '2022-05-14 19:10:28', NULL),
 ('tchr-a80e12', NULL, 'tchr-a80e12', 'teacher', NULL, NULL, '2022-05-14 19:10:28', NULL),
